@@ -121,6 +121,10 @@ export class FirstPersonController {
     }
 
     keydownHandler(e) {
+        // Preprečim bližnjice brskalnika, npr. Ctrl+W med crouchanjem in hojo.
+        if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'Space', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight'].includes(e.code)) {
+            e.preventDefault();
+        }
         this.keys[e.code] = true;
     }
 
